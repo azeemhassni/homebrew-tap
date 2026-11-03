@@ -6,12 +6,12 @@ class Scribe < Formula
   license "GPL-3.0-only"
   head "https://github.com/azeemhassni/scribe.git", branch: "main"
 
-  # Liquid Glass and the CoreAudio process taps Scribe records with.
-  depends_on macos: :tahoe
-  depends_on arch: :arm64
   depends_on xcode: ["26.0", :build]
+  # Apple Silicon for the CoreAudio process taps, Tahoe for Liquid Glass.
+  depends_on arch: :arm64
+  depends_on macos: :tahoe
   # Scribe shells out to whisper-cli for transcription.
-  depends_on "whisper-cpp"
+  depends_on "whisper.cpp"
 
   def install
     # SwiftPM cannot run its own sandbox inside Homebrew's.
